@@ -27,7 +27,9 @@ dependencies {
     compile "com.android.support:support-v4:${SUPPORT_LIBRARY_VERSION}"
     compile "com.squareup.retrofit2:retrofit:${RETROFIT_VERSION}"
     compile "com.squareup.retrofit2:converter-gson:${RETROFIT_VERSION}"
+    apply plugin: 'com.neenbedankt.android-apt'
     compile "com.jakewharton:butterknife:${BUTTERKNIFE_VERSION}"
+    apt "com.jakewharton:butterknife-compiler:${BUTTERKNIFE_VERSION}"
     compile "org.greenrobot:eventbus:${EVENTBUS_VERSION}"
     compile "nl.qbusict:cupboard:${CUPBOARD_VERSION}"
     compile "com.squareup.picasso:picasso:${PICASSO_VERSION}"

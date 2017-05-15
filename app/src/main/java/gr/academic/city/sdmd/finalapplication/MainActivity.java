@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
@@ -27,16 +27,16 @@ import static nl.qbusict.cupboard.CupboardFactory.cupboard;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Bind(R.id.lv_results)
+    @BindView(R.id.lv_results)
     ListView lvResults;
 
-    @Bind(R.id.txt_first_name)
+    @BindView(R.id.txt_first_name)
     EditText txtFirstName;
 
-    @Bind(R.id.txt_last_name)
+    @BindView(R.id.txt_last_name)
     EditText txtLastName;
 
-    @Bind(R.id.txt_age)
+    @BindView(R.id.txt_age)
     EditText txtAge;
 
     private StudentsApi studentsApi;
@@ -54,13 +54,18 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         studentsApi = retrofit.create(StudentsApi.class);
+
+        txtFirstName.setText("Aristodemos");
+        txtLastName.setText("Pnevmatikakis");
+        txtAge.setText("46");
     }
 
     @OnClick(R.id.btn_insert)
     public void onCreateStudentClicked() {
         String firstName = txtFirstName.getText().toString();
         String lastName = txtLastName.getText().toString();
-        String age = txtLastName.getText().toString();
+        String age = txtAge.getText().toString();
+        Log.d("MainActivity", "Creating via Retrofit: " + firstName + " " + lastName + " aged " + age);
 
         studentsApi.createStudent(new Student(firstName, lastName, age))
                 .enqueue(new Callback<Void>() {
@@ -84,7 +89,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateStudentLocallyClicked() {
         String firstName = txtFirstName.getText().toString();
         String lastName = txtLastName.getText().toString();
-        String age = txtLastName.getText().toString();
+        String age = txtAge.getText().toString();
+        Log.d("MainActivity", "Creating via Cupboard: " + firstName + " " + lastName + " aged " + age);
 
         SQLiteOpenHelper helper = new CupboardSQLiteOpenHelper(this);
         SQLiteDatabase db = helper.getWritableDatabase();
@@ -92,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         // THIS IS EXECUTED ON THE MAIN THREAD NOW, JUST FOR DEMO PURPOSES, DON'T DO THIS AT HOME
         long id = cupboard().withDatabase(db).put(new Student(firstName, lastName, age));
 
-        showToast(getString(R.string.msg_student_created_with_id, id));
+        showToast(getString(R.string.msg_student_created_with_id, "" + id));
 
         db.close();
         helper.close();
