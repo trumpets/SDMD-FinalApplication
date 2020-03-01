@@ -3,7 +3,6 @@ package gr.academic.city.sdmd.finalapplication;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -12,7 +11,8 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import butterknife.Bind;
+import androidx.appcompat.app.AppCompatActivity;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
@@ -27,16 +27,16 @@ import static nl.qbusict.cupboard.CupboardFactory.cupboard;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Bind(R.id.lv_results)
+    @BindView(R.id.lv_results)
     ListView lvResults;
 
-    @Bind(R.id.txt_first_name)
+    @BindView(R.id.txt_first_name)
     EditText txtFirstName;
 
-    @Bind(R.id.txt_last_name)
+    @BindView(R.id.txt_last_name)
     EditText txtLastName;
 
-    @Bind(R.id.txt_age)
+    @BindView(R.id.txt_age)
     EditText txtAge;
 
     private StudentsApi studentsApi;

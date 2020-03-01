@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion TARGET_SDK
-    buildToolsVersion BUILD_TOOLS_VERSION
 
     defaultConfig {
         applicationId "gr.academic.city.sdmd.finalapplication"
@@ -20,15 +19,14 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile "junit:junit:${JUNIT_VERSION}"
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation "junit:junit:${JUNIT_VERSION}"
 
-    compile "com.android.support:appcompat-v7:${SUPPORT_LIBRARY_VERSION}"
-    compile "com.android.support:support-v4:${SUPPORT_LIBRARY_VERSION}"
-    compile "com.squareup.retrofit2:retrofit:${RETROFIT_VERSION}"
-    compile "com.squareup.retrofit2:converter-gson:${RETROFIT_VERSION}"
-    compile "com.jakewharton:butterknife:${BUTTERKNIFE_VERSION}"
-    compile "org.greenrobot:eventbus:${EVENTBUS_VERSION}"
-    compile "nl.qbusict:cupboard:${CUPBOARD_VERSION}"
-    compile "com.squareup.picasso:picasso:${PICASSO_VERSION}"
+    implementation "androidx.appcompat:appcompat:${ANDROIDX_LIBRARY_VERSION}"
+    implementation "com.squareup.retrofit2:retrofit:${RETROFIT_VERSION}"
+    implementation "com.squareup.retrofit2:converter-gson:${RETROFIT_VERSION}"
+    implementation "com.jakewharton:butterknife:${BUTTERKNIFE_VERSION}"
+    implementation "org.greenrobot:eventbus:${EVENTBUS_VERSION}"
+    implementation "nl.qbusict:cupboard:${CUPBOARD_VERSION}"
+    implementation "com.squareup.picasso:picasso:${PICASSO_VERSION}"
 }

@@ -15,7 +15,7 @@
     <!-- MESSAGES -->
     <string name="msg_server_error">Server error</string>
     <string name="msg_student_created">Student created w00t!</string>
-    <string name="msg_student_created_with_id">Student created w00t! ID %s</string>
+    <string name="msg_student_created_with_id">Student created w00t! ID %d</string>
     <string name="msg_student_not_created">Student not created =(</string>
     <string name="msg_students_not_fetched">Students not fetched =(</string>
 </resources>
