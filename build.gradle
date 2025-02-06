@@ -8,21 +8,20 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.3'
+        classpath 'com.android.tools.build:gradle:8.2.2'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 
     ext {
-        MIN_SDK = 15
-        TARGET_SDK = 28
+        MIN_SDK = 21
+        TARGET_SDK = 34
 
-        JUNIT_VERSION = "4.12"
-        ANDROIDX_LIBRARY_VERSION = "1.1.0"
+        JUNIT_VERSION = "4.13.2"
+        ANDROIDX_LIBRARY_VERSION = "1.7.0"
 
-        RETROFIT_VERSION = "2.0.1"
-        BUTTERKNIFE_VERSION = "8.0.1"
+        RETROFIT_VERSION = "2.8.1"
         EVENTBUS_VERSION = "3.0.0"
         CUPBOARD_VERSION = "2.1.4"
         PICASSO_VERSION = "2.5.2"
